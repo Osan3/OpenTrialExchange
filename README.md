@@ -12,7 +12,7 @@ Open Trial Exchange is an open source project for securely exchanging confidenti
 
 ## API
 
-### Seed
+### Seed data
 
 ```
 POST /api/v1/seed
@@ -27,7 +27,11 @@ Response:
 {
 	"hash": <ipfs hash of the seeded data>
 }
+```
 
+### Get data
+
+```
 GET /api/v1/data/{hash}
 
 Request Body:
@@ -40,7 +44,11 @@ Response:
 	"data": <base64 encoded encrypted data>,
 	"status": "available"
 }
+```
 
+### Get status of data
+
+```
 GET /api/v1/status/{hash}
 
 Response:
@@ -50,11 +58,11 @@ Response:
 
 ```
 
-The /api/v1/seed endpoint allows data and intellectual property providers to seed their encrypted data on IPFS by sending a POST request with the encrypted data and encryption key in the request body. The response will include the IPFS hash of the seeded data.
+The `/api/v1/seed` endpoint allows data and intellectual property providers to seed their encrypted data on IPFS by sending a POST request with the encrypted data and encryption key in the request body. The response will include the IPFS hash of the seeded data.
 
-The /api/v1/data/{hash} endpoint allows authorized users to retrieve the encrypted data from IPFS by sending a GET request with the encryption key in the request body. The response will include the encrypted data.
+The `/api/v1/data/{hash}` endpoint allows authorized users to retrieve the encrypted data from IPFS by sending a GET request with the encryption key in the request body. The response will include the encrypted data.
 
-GET /api/v1/status/{hash} endpoint allows clients to check the availability of the seeded data on IPFS. The response will include a status field that indicates whether the data is available ("available") or unavailable ("unavailable").
+GET `/api/v1/status/{hash}` endpoint allows clients to check the availability of the seeded data on IPFS. The response will include a status field that indicates whether the data is available ("available") or unavailable ("unavailable").
 
 ## Getting Started
 
